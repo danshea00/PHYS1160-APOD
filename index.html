@@ -1,164 +1,140 @@
-<!doctype html>
-<html xmlns:fb="http://ogp.me/ns/fb#">
-	<head>	
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="author" content="Martin Vézina, La Grange">
-		<title>jsOrrery - Javascript Solar System Simulator</title>
-		<style>
-			body {
-				opacity: 0;
-			}
-		</style>
-		<meta property="og:title" content="jsOrrery - Solar System Simulator" /> 
-		<meta property="og:image" content="https://mgvez.github.io/jsorrery/img/jsorrery_likefb.jpg" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:description" content="See the Solar System in your browser with jsOrrery, a Javascript / WebGL orbital mechanics simulator." />
-		<meta property="og:url" content="https://mgvez.github.io/jsorrery/" />
-		<meta name="twitter:creator" content="@m_vezina" />
-		<meta property="fb:app_id" content="400609246982045" />
-		<link rel="canonical" href="https://mgvez.github.io/jsorrery/" />
-		<link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-	<link href="jsorrery.css" rel="stylesheet"></head>
-	<body id="jsorrery">
-		<nav id="gui">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="jsorrery.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+	<h1 id="title">PHYS1160 APOD: Jupiter's Great Red Spot</h1>
+	<h2 id="subtitle">Dan Shea (z5206093)</h2>
+	<div id="jsorrery"></div>
+	<p id="reference">Source: github.com/mgvez/jsorrery</p>
+	<h3 id="heading">Jupiter's Atmosphere</h3>
+	<p id="paragraph">The atmosphere of Jupiter is very well understood after the Galileo atmospheric probe descended into the gas giant in 1995, measuring the temperature, pressure, gas composition, clouds, radiant energy, and lightning.
+		The main components of Jupiter’s atmosphere are molecular hydrogen and helium. The atmosphere also contains simple compounds such as water, ammonia, and hydrogen sulphide, as well as hydrocarbons as heavy as Benzene (Atreya, 2003). The atmosphere is divided into four layers: the troposphere, the stratosphere, the thermosphere, and the exosphere. Due to the high temperatures and pressures at the lowest layer of the atmosphere, there is a smooth transition between Jupiter’s liquid centre and the troposphere. The base of this layer is considered to be approximately 90 km below the planets ‘surface’ of 1 bar, where the pressure reaches 10 bar (Seiff, 1998). The layer extends to 50 km beyond the planet’s surface, where temperatures decrease from 340 K to 110 K.  The troposphere also contains cloud structures made of ammonia ice (Baines, 2002). It is these structures that create the red and white bands of Jupiter which can be seen from earth. The stratosphere extends beyond the tropopause, rising to an altitude of 320 km where pressures are 1 μbar. In this layer, temperatures increase to about 200 K at the transition to the thermosphere. The stratosphere hosts haze layers composed of condensed heavy hydrocarbons or hydrazine, generated from methane in the upper stratosphere. In the thermosphere, which extends beyond 1000 km, temperatures further rise to 800–1000 K. Notable phenomena in the thermosphere include airglow, polar aurorae, and X-ray emissions (Yelle and Miller, 2004). Layers of increased electron and ion density form the ionosphere within the thermosphere. The exosphere, located beyond approximately 5000 km above the surface, sees a gradual decrease in density. This outermost layer emits X-rays at the poles and low latitudes, with permanent aurorae encircling the poles (Bhardwaj and Gladstone, 2000). Jupiter's atmosphere exhibits a complex and dynamic structure across the various layers.
+		In conclusion, Jupiter's atmosphere, primarily composed of molecular hydrogen and helium, exhibits a stratified structure with distinct layers, from the troposphere characterised by ammonia ice clouds to the thermosphere displaying phenomena such as airglow, polar aurorae, and X-ray emissions.
+	</p>
+	<br>
+	<!-- <img id="image" src="your-image-source.jpg" alt="Your Image Description"> -->
+
+	
+    <script src="assets/data/elp.js"></script>
+    <script src="assets/data/vsop-earth.js"></script>
+    <script>
+		window.onJsOrreryLoaded = function (JSOrrery) {
+			const jsOrrery = new JSOrrery('jsorrery');
+            const params = {
+				cameraSettings: {
+					x: "11",
+                    y: "-420",
+                    z: "-50",
+                }
+            };
 			
-			<div id="status">
-				<div id="startCont" class="inputContainer"></div>
-				<div id="dateDisplay"></div>
-			</div>
-			<label id="scenarioLabel">
-				<div>Scenario <span class="help fa fa-question-circle" data-for="helpScenario">&nbsp;</span></div>
-				<div id="scenarioCont" class="inputContainer"></div>
-			</label>
-			<label id="dateLabel">
-				<div>Date <span class="help fa fa-question-circle" data-for="helpDate">&nbsp;</span></div>
-				<div id="dateCont" class="inputContainer"></div>
-			</label>
-			<label id="lookFromLabel">
-				<div>Point of view <span class="help fa fa-question-circle" data-for="helpLookFrom">&nbsp;</span></div>
-				<div id="lookFromCont" class="inputContainer"></div>
-			</label>
+            jsOrrery.loadScenarioFromName('JupiterMoon', params);
+            jsOrrery.activeScenario.playing = true;
+        }
+		</script>
+    <script type="text/javascript" src="jsorrery.js"></script>
+	
+	<div id="quiz">
+		<h2 id="questions-h">Questions</h2>
 
-			<label id="geolocLabel">
-				<div>Lat/Lng</div>
-				<div id="geolocCont" class="inputContainer"></div>
-			</label>
-			
-			<label id="lookAtLabel">
-				<div>Look at <span class="help fa fa-question-circle" data-for="helpLookAt">&nbsp;</span></div>
-				<div id="lookAtCont" class="inputContainer"></div>
-			</label>
-			<label id="planetScaleLabel">
-				<div>Planet Scale <span class="valDisplay"></span>x <span class="help fa fa-question-circle" data-for="helpScale">&nbsp;</span></div>
-				<div id="planetScaleCont" class="inputContainer"></div>
-			</label>
-			<label id="deltaTLabel">
-				<div>Animation speed <span class="help fa fa-question-circle" data-for="helpDeltaT">&nbsp;</span></div>
-				<div id="deltaTCont" class="inputContainer"></div>
-			</label>
+		<p class="questions" id="question1">
+			Which layer of Jupiter’s atmosphere is the hottest?</p>
+		<input type="radio" name="answer1" value="wrong">Troposphere
+		<input type="radio" name="answer1" value="wrong">Stratosphere
+		<input type="radio" name="answer1" value="correct">Thermosphere
+		<input type="radio" name="answer1" value="wrong">Exosphere
+		<hr>
+	
+		<p class="questions" id="question2">
+			Jupiter’s red and white clouds structures are made of which chemical?</p>
+		<input type="radio" name="answer2" value="correct">Ammonia
+		<input type="radio" name="answer2" value="wrong">Water
+		<input type="radio" name="answer2" value="wrong">Benzene
+		<input type="radio" name="answer2" value="wrong">Hydrogen
+		<hr>
+	
+		<p class="questions" id="question3">
+			At what altitude does Jupiter’s troposphere end?</p>
+		<input type="radio" name="answer3" value="wrong">5000 km
+		<input type="radio" name="answer3" value="wrong">320 km
+		<input type="radio" name="answer3" value="correct">90 km
+		<input type="radio" name="answer3" value="wrong">0 km
+		<hr>
+	
+		<button class="submit" onclick="return getResults();" type="submit">Comprueba tus respuestas</button>
+	
+		<script type="text/javascript">
+			function getResults() {
+				// CORRECT ANSWERS
+				var amountCorrect = 0;
 
-			<label id="shareLabel">
-				<div id="shareCont" class="inputContainer"></div>
-			</label>
-			
-			<div id="shareWidget">
-				Direct link url
-				<input type="text" id="shareUrl">
-				<div id="social">
-					<div id="twitterShare" data-via="lagrange_mtl"></div>
-				</div>
-			</div>
+				// LOOP FOR GOING THROUGH ALL QUESTIONS
+				for (var i = 1; i <= 5; i++) {
+					var radiosName = document.getElementsByName('answer' + i);
+					var questionElem = document.getElementById('question' + i);
 
-			<div id="navCollapse" class="fa fa-angle-double-up"></div>
-		</nav>
-		
+					// Clear previous check/cross
+					clearMarks(questionElem);
 
+					// LOOP FOR CHECKING ANSWERS INSIDE EACH RADIO
+					for (var j = 0; j < radiosName.length; j++) {
+					var radiosValue = radiosName[j];
 
-		<div class="helpContent" id="helpScenario">
-			<a class="close fa fa-close">&nbsp;</a>
-			<h2>Scenario</h2>
-			<p>The available scenarios are in fact collections of numbers that describe celestial bodies and their position. These numbers are coming, for the most part, from Nasa's websites. Their accuracy is quite impressive, more than enough for the context of this simulation. The picture that you see on any given date represents what the real Solar System looked like on that date.</p>
-		</div>
-		<div class="helpContent" id="helpDate">
-			<a class="close fa fa-close">&nbsp;</a>
-			<h2>Date</h2>
-			<p>The <a href="http://en.wikipedia.org/wiki/Orbital_elements" target="_blank">orbital elements</a> of the planets are used to calculate their original position when picking a date. These calculations produce a very good approximation of the positions : you can compare the stars and constellations that you see in the background from other sources, provided that you place the point of view on The Earth.</p>
-			<p>Some scenarios are set to be animated by calculating positions from the orbital elements, but in some cases the velocity of each planet is derived from these calculations so that the positions are no longer calculated from the elements, but from the gravity that is acting between the different bodies. The calculation of these forces is also an approximation using a Quadratic integration, and its precision decays over time. This decay is more pronounced in some scenarios.</p>
-			<p>You can find on the internet the dates of celestial events, for example eclipses or lunar phases, and check if you can observe them in this simulation.</p>
-			<p>Please note that I use the Gregorian calendar for all dates, whereas Nasa use the Julian calendar for dates before the Gregorian reform (before 1582-10-15).</p>
-			<p>It is also worth noting that I use the ELP2000-85 theory to compute the Moon's position, which is not the exact same theory used by Nasa to compute its eclipse canon, so that there are small differences in the position of the Moon, particularly for very ancient dates.</p> 
-		</div>
-		<div class="helpContent" id="helpLookFrom">
-			<a class="close fa fa-close">&nbsp;</a>
-			<h2>Point of view</h2>
-			<p>This option makes it possible to place the camera at the position of a planet of your choice, so you'd see the other planets from the point of view of the chosen one. From there you can zoom by scrolling.</p>
-			<p>The Free Camera is a camera that floats into space, and that you can move by scrolling and dragging. This camera always revolve around a point specified in the "look at" option field.</p>
-		</div>
-		<div class="helpContent" id="helpLookAt">
-			<a class="close fa fa-close">&nbsp;</a>
-			<h2>Look at</h2>
-			<p>You can make your selected camera look at a planet of your choice, so that it always will be centered in your viewport.</p>
-			<p>If you place the camera from the viewpoint of a planet and look at another one, the latter's path will be traced relative to the former's position. This feature is useful to observe the <a href="http://en.wikipedia.org/wiki/Apparent_retrograde_motion" target="_blank">apparent retrograde motion</a> of the planets relative to the Earth.</p>
-		</div>
-		<div class="helpContent" id="helpScale">
-			<a class="close fa fa-close">&nbsp;</a>
-			<h2>Planet scale</h2>
-			<p>When the scale is at 1x, the planets sizes are in 1:1 scale to the size of the orbits, and of the universe. Since the distances in the Solar System are so huge, we can't even see the planets at this scale, so I made it possible to make the planets larger to see them more easily. I left the possibility to view them at their real size, because I feel it gives a better hint about the vastness of our Solar System.</p>
-		</div>
-		<div class="helpContent" id="helpDeltaT">
-			<a class="close fa fa-close">&nbsp;</a>
-			<h2>Speed</h2>
-			<p>Move the slider to change animation speed. Depending on the scenario, precision of positions can decay with increased speed.</p>
-		</div>
-		<div class="helpContent" id="helpCredits">
-			<a class="close fa fa-close">&nbsp;</a>
-			<h2>Credits</h2>
-			<p>
-				<a href="http://la-grange.ca"><img src="img/logo-la-grange.png"></a>
-			</p>
-			<p>Programming by <a href="http://lab.la-grange.ca/en/martin-vezina">Martin Vézina</a>, <a href="http://la-grange.ca">La Grange</a>, 2013-2017.</p>
-			<p><a href="https://twitter.com/m_vezina" class="twitter-follow-button" data-show-count="false">Follow @m_vezina</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+					if (radiosValue.value == 'correct' && radiosValue.checked) {
+						amountCorrect++;
+						radiosValue.style.color = 'green';
+						addCheckbox(questionElem);
+					} else if (radiosValue.value != 'correct' && radiosValue.checked) {
+						radiosValue.style.color = 'red';
+						addCross(questionElem);
+					}
+					}
+				}
 
-			<p>See project on Github at <a href="https://github.com/mgvez/jsorrery">https://github.com/mgvez/jsorrery</a></p>
+				document.getElementById('results').innerHTML =
+					'Respuestas correctas ' + amountCorrect;
+				}
 
-			<h3>Special thanks</h3>
-			<ul>
+				function addCheckbox(questionElem) {
+				var checkbox = document.createElement('span');
+				checkbox.className = 'checkmark'; // Add a class for identification
+				checkbox.innerHTML = '&#x2713;'; // Checkmark symbol
+				checkbox.style.color = 'green';
+				questionElem.appendChild(checkbox);
+				}
 
-				<li>Planets orbital elements from Nasa's <a href="http://ssd.jpl.nasa.gov/?planet_pos">Jet Propulsion Laboratory</a>.</li>
-				<li>I learned about calculating positions from orbital elements by reading these documents by <a href="http://www.stargazing.net/kepler/ellipse.html">Keith Burnett</a>, <a href="http://www.stjarnhimlen.se/comp/tutorial.html">Paul Schlyter</a> and <a href="http://ssd.jpl.nasa.gov/txt/aprx_pos_planets.pdf">E M Standish (JPL)</a>.</li>
-				<li>Planet texture maps are a courtesy of <a href="http://planetpixelemporium.com/planets.html">James Hastings-Trew</a>.</li>
-				<li>Stars coordinates from <a href="http://astronexus.com/">AstroNexus</a> and <a href="http://heasarc.gsfc.nasa.gov/docs/archive.html">Nasa</a>.</li>
-				<li>David Eagle for orbital calculations of the moon, based on "Lunar Tables and Programs From 4000 B.C. TO A.D. 8000" by Michelle Chapront-Touze and Jean Chapront. See <a href="http://www.mathworks.com/matlabcentral/fileexchange/39130-orbital-elements-of-the-moon">mathworks.com</a>.</li>
-				<li><a href="http://www.braeunig.us/apollo/">Bob Braeunig</a> for calculations of Apollo missions trans lunar injection trajectories.</li>
-				<li>Quadratic integrations from <a href="http://orbit.medphys.ucl.ac.uk/">Orbiter</a>'s documentaion by Martin Schweiger.</li>
-				<li><a href="http://clowder.net/hop/index.html">Hop David</a> for vis viva calculation of velocity.</li>
-				<li>I have found answers to many questions on random places across the internetz, places like <a href="http://stackoverflow.com">StackOverflow</a> or <a href="http://www.orbiter-forum.com/">Orbiter Forum</a>. There are a lot of helpful people out there.</li>
-				<li>Some techniques are inspired by Michael Chang's <a href="http://www.html5rocks.com/en/tutorials/casestudies/100000stars/">tutorial</a> of <a href="http://workshop.chromeexperiments.com/stars/">100,000 stars</a></li>
-				<li>And of course, many thanks to <a href="http://www.mrdoob.com/">Mr Doob</a> for the excellent <a href="http://threejs.org/">three.js</a></li>
-			</ul>
-		</div>
-			
-		<div class="preload">
-			<div class="orbit"><div class="planet"></div></div>
-			<div class="title">
-				<h1>jsorrery</h1>
-				<h2>solar system</h2>
-			</div>
-		</div>
+				function addCross(questionElem) {
+				var cross = document.createElement('span');
+				cross.className = 'cross'; // Add a class for identification
+				cross.innerHTML = '&#x2717;'; // Cross symbol
+				cross.style.color = 'red';
+				questionElem.appendChild(cross);
+				}
 
-		<div id="credits" class="help fa fa-question-circle" data-for="helpCredits">credits</div>
-		<script src="assets/data/elp.js"></script>
-		<script src="assets/data/vsop-earth.js"></script>
-		<script>
+				function clearMarks(questionElem) {
+				// Remove any previously added checkmark or cross
+				var checkmarks = questionElem.getElementsByClassName('checkmark');
+				while (checkmarks.length > 0) {
+					checkmarks[0].parentNode.removeChild(checkmarks[0]);
+				}
 
-			window.onJsOrreryLoaded = function(JSOrrery){
-				const jsOrrery = new JSOrrery('jsorrery');
-				jsOrrery.loadDefaultScenario();
-			}
+				var crosses = questionElem.getElementsByClassName('cross');
+				while (crosses.length > 0) {
+					crosses[0].parentNode.removeChild(crosses[0]);
+				}
+				}
 
 		</script>
-	<script type="text/javascript" src="jsorrery.js"></script></body>
+	</div>
+
+</body>
+
 </html>
