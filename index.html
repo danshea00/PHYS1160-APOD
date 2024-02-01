@@ -1,140 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href="jsorrery.css" rel="stylesheet" />
+  </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link href="jsorrery.css" rel="stylesheet">
-</head>
+  <body>
+    <h1 id="title">PHYS1160 APOD: Jupiter's Great Red Spot</h1>
+    <h2 id="subtitle">Dan Shea (z5206093)</h2>
+    <div class="img-container" id="grs">
+      <img src="img/grs.jpeg" alt="Voyager 2 GRS" />
+      <div class="img-overlay">
+        <p class="reference">
+          Voyager 2's view of the Great Red Spot
+          <br />
+          <a href="https://apod.nasa.gov/apod/ap110502.html"
+            >apod.nasa.gov/apod/ap110502.html</a
+          >
+        </p>
+      </div>
+    </div>
 
-<body>
+    <h3 class="heading">Jupiter</h3>
+    <p>
+      Jupiter is the largest planet in our solar system. One of the four Jovian
+      planets in our solar system, the gas giant is named after the Roman king
+      of gods, Jupiter. The planet’s observation was first recorded by
+      Babylonian astronomers as early as the 8th century BC (Sachs, 1974). To
+      the Babylonians, the planet represented the god Marduk (Rogers, 1998).
+      Jupiter’s orbital period of just under 12 years is the basis for both the
+      Babylonian and Chinese zodiacs (Dubs, 1958). Since these early
+      observations, and with the technological advancements that have allowed
+      for space exploration, we have gained a much clearer picture of Jupiter.
+    </p>
+    <p>
+      Jupiter has a semi-major axis of approximately 5.2 AU and an eccentricity
+      of 0.0489. With a volume of 143128e10 km^3, Jupiter is 1321 times larger
+      than Earth, despite being only 318 times more massive. The planet is
+      composed of mostly hydrogen and helium, with a composition of 89% and 10%
+      by volume respectively (NASA, 2018). This proportion of hydrogen and
+      helium is close to the composition of the primordial solar nebula. Jupiter
+      is often referred to as a “failed star” as it has the right composition to
+      be a star, but is not massive enough to fuse hydrogen into helium.
+    </p>
+    <p>
+      Jupiter's gravity is shaped by its rotation and atmospheric movements.
+      Measurements from Juno reveal a north-south gravitational asymmetry,
+      pointing to internal and atmospheric activity (Iess et al, 2021).
+    </p>
+    <p>
+      Discovered by Galileo, the planet has four moons: Io, Europa, Ganymede,
+      and Callisto. The largest, Ganymede, is even larger than Mercury, and the
+      smallest, Europa, is about as large as Earth’s moon. Io, Europa, and
+      Ganymede orbit according to the Laplace resonance, with their orbital
+      periods exhibiting a ratio of 4:2:1 respectively.
+    </p>
+    <br />
+    <div id="jsorrery"></div>
+    <p class="reference">
+      Simulation of Jupiter and it's moons
+      <br />
+      <a href="https://github.com/mgvez/jsorrery">github.com/mgvez/jsorrery</a>
+    </p>
 
+    <h3 class="heading">Jupiter’s Atmosphere</h3>
+    <p>
+      The atmosphere of Jupiter is very well understood after the Galileo
+      atmospheric probe descended into the gas giant in 1995, measuring the
+      temperature, pressure, gas composition, clouds, radiant energy, and
+      lightning.
+    </p>
+    <p>
+      The main components of Jupiter’s atmosphere are molecular hydrogen and
+      helium. The atmosphere also contains simple compounds such as water,
+      ammonia, and hydrogen sulphide, as well as hydrocarbons as heavy as
+      Benzene (Atreya, 2003). The atmosphere is divided into four layers: the
+      troposphere, the stratosphere, the thermosphere, and the exosphere. Due to
+      the high temperatures and pressures at the lowest layer of the atmosphere,
+      there is a smooth transition between Jupiter’s liquid centre and the
+      troposphere. The base of this layer is considered to be approximately 90
+      km below the planets ‘surface’ of 1 bar, where the pressure reaches 10 bar
+      (Seiff, 1998). The layer extends to 50 km beyond the planet’s surface,
+      where temperatures decrease from 340 K to 110 K. The troposphere also
+      contains cloud structures made of ammonia ice (Baines, 2002). It is these
+      structures that create the red and white bands of Jupiter which can be
+      seen from earth. The stratosphere extends beyond the tropopause, rising to
+      an altitude of 320 km where pressures are 1 μbar. In this layer,
+      temperatures increase to about 200 K at the transition to the
+      thermosphere. The stratosphere hosts haze layers composed of condensed
+      heavy hydrocarbons or hydrazine, generated from methane in the upper
+      stratosphere. In the thermosphere, which extends beyond 1000 km,
+      temperatures further rise to 800–1000 K. Notable phenomena in the
+      thermosphere include airglow, polar aurorae, and X-ray emissions (Yelle
+      and Miller, 2004). Layers of increased electron and ion density form the
+      ionosphere within the thermosphere. The exosphere, located beyond
+      approximately 5000 km above the surface, sees a gradual decrease in
+      density. This outermost layer emits X-rays at the poles and low latitudes,
+      with permanent aurorae encircling the poles (Bhardwaj and Gladstone,
+      2000). Jupiter's atmosphere exhibits a complex and dynamic structure
+      across the various layers.
+    </p>
+    <p>
+      Jupiter's atmosphere, primarily composed of molecular hydrogen and helium,
+      exhibits a stratified structure with distinct layers, from the troposphere
+      characterised by ammonia ice clouds to the thermosphere displaying
+      phenomena such as airglow, polar aurorae, and X-ray emissions.
+    </p>
 
-	<h1 id="title">PHYS1160 APOD: Jupiter's Great Red Spot</h1>
-	<h2 id="subtitle">Dan Shea (z5206093)</h2>
-	<div id="jsorrery"></div>
-	<p id="reference">Source: github.com/mgvez/jsorrery</p>
-	<h3 id="heading">Jupiter's Atmosphere</h3>
-	<p id="paragraph">The atmosphere of Jupiter is very well understood after the Galileo atmospheric probe descended into the gas giant in 1995, measuring the temperature, pressure, gas composition, clouds, radiant energy, and lightning.
-		The main components of Jupiter’s atmosphere are molecular hydrogen and helium. The atmosphere also contains simple compounds such as water, ammonia, and hydrogen sulphide, as well as hydrocarbons as heavy as Benzene (Atreya, 2003). The atmosphere is divided into four layers: the troposphere, the stratosphere, the thermosphere, and the exosphere. Due to the high temperatures and pressures at the lowest layer of the atmosphere, there is a smooth transition between Jupiter’s liquid centre and the troposphere. The base of this layer is considered to be approximately 90 km below the planets ‘surface’ of 1 bar, where the pressure reaches 10 bar (Seiff, 1998). The layer extends to 50 km beyond the planet’s surface, where temperatures decrease from 340 K to 110 K.  The troposphere also contains cloud structures made of ammonia ice (Baines, 2002). It is these structures that create the red and white bands of Jupiter which can be seen from earth. The stratosphere extends beyond the tropopause, rising to an altitude of 320 km where pressures are 1 μbar. In this layer, temperatures increase to about 200 K at the transition to the thermosphere. The stratosphere hosts haze layers composed of condensed heavy hydrocarbons or hydrazine, generated from methane in the upper stratosphere. In the thermosphere, which extends beyond 1000 km, temperatures further rise to 800–1000 K. Notable phenomena in the thermosphere include airglow, polar aurorae, and X-ray emissions (Yelle and Miller, 2004). Layers of increased electron and ion density form the ionosphere within the thermosphere. The exosphere, located beyond approximately 5000 km above the surface, sees a gradual decrease in density. This outermost layer emits X-rays at the poles and low latitudes, with permanent aurorae encircling the poles (Bhardwaj and Gladstone, 2000). Jupiter's atmosphere exhibits a complex and dynamic structure across the various layers.
-		In conclusion, Jupiter's atmosphere, primarily composed of molecular hydrogen and helium, exhibits a stratified structure with distinct layers, from the troposphere characterised by ammonia ice clouds to the thermosphere displaying phenomena such as airglow, polar aurorae, and X-ray emissions.
-	</p>
-	<br>
-	<!-- <img id="image" src="your-image-source.jpg" alt="Your Image Description"> -->
+    <br />
 
-	
+    <div class="wrapper">
+      <div class="h_iframe">
+        <!-- a transparent image is preferable -->
+        <img class="ratio" src="http://placehold.it/16x9" />
+        <iframe
+          src="https://www.youtube.com/embed/uj3Lq7Gu94Y"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <br />
+    <h3 class="heading">The Great Red Spot</h3>
+
+    <p>
+      Jupiter’s Great Red Spot is the largest anticyclonic storm in our solar
+      system. The storm rotates anticlockwise and is located 22 degrees south of
+      the equator. The Great Red Spot has existed since at least the 19th
+      century, though it may have formed as early as 1665, however these
+      observations could have been of a different storm. Figure X shows Donato
+      Creti’s impression of a stormy Jupiter, painted in 1711. As detailed
+      records exist since 1879, the size and drift of The Great Red Spot can be
+      measured over many years (Simon, 2018). Anticyclones, with high pressure
+      central regions, spin the opposite way to conventional cyclones, which
+      have low pressure central regions. The stable nature of anticyclones in
+      combination with the size, depth, and vorticity of The Great Red Spot,
+      allows for the storm’s longevity (Sánchez‐Lavega, 2021).
+    </p>
+    <p>
+      Analysis of the storm using microwave radiometry data from the Juno
+      mission indicated that it is 200 to 500 km deep, extending to a base of
+      240 km below the surface where pressures reach 100 bar (Parisi et al,
+      2018). A more recent study determined that The Great Red Spot is more
+      deeply rooted, with a depth of greater than 500 km (Cai et al, 2023). The
+      storm’s colour has also changed over time, becoming more intensely orange
+      over time. This is possibly correlated with a phenomenon known as ‘vortex
+      stretching’ (Simon, 2018).
+    </p>
+    <p>
+      The Great Red Spot has been observed to be shrinking in length since the
+      1800s. Since 1987, when its length was 40,000 km, the storm has shrunk to
+      a length of 15,000 km today (Sánchez‐Lavega, 2021). It currently continues
+      to shrink at 0.194°/yr; a rate which will see the storm transition from
+      oval to circular by 2040. The storm travels westward, at a rate that has
+      increased since the 1980’s. Since 2014, the Great Red Spot has exhibited a
+      diminishing reflectance in the short wavelength range (< 650 nm),
+      accompanied by an increase in brightness at 890 nm. These changes suggest
+      alterations in the composition of clouds or haze at elevated altitudes
+      (Simon, 2018). From 2018 to 2020, the spot began to ‘flake’, with
+      fragments dissipating at the edges of the storm. While there was
+      speculation that the storm was beginning to dissipate, new research claims
+      that these events were superficial, not affecting the entire depth of The
+      Great Red Spot (Sánchez‐Lavega, 2021).
+    </p>
+    <p>
+      Researchers have simulated stable 3-dimensional vortices within Jupiter's
+      atmosphere. Two types were explored: "constant-vorticity," which are
+      similar to Jupiter's Great Red Spot, and "constant-area" vortices. The
+      simulation indicated stable vortices resembling the Great Red Spot emerged
+      from the constant-vorticity type, while constant-area vortices proved
+      unstable. Late-stage vortices exhibited unexpected features, including
+      hollowing akin to the Great Red Spot and alignment with Jupiter's spin
+      axis (Zhang, 2023).
+    </p>
+    <p>
+      Jupiter's Great Red Spot has endured for centuries and presents a unique
+      subject of study. Detailed observational records have allowed for a
+      comprehensive analysis of its size, drift, and evolving characteristics.
+      Recent research indicates a substantial depth, surpassing 500 km. The
+      storm's colour transformation and the observed shrinking since the 1800s,
+      coupled with altered reflectance and 'flaking' events, highlight the
+      dynamic nature of the storm. Simulations of 3-dimensional vortices offer
+      valuable insights into the stability and unexpected features of structures
+      resembling the Great Red Spot within Jupiter's atmosphere.
+    </p>
+
+    <h3 class="heading">Missions</h3>
+
+    <p>There have been many missions to Jupiter:</p>
+
+    <table border="1" class="table">
+      <tr>
+        <th>Launch Date</th>
+        <th>Spacecraft</th>
+        <th>Nation</th>
+        <th>Type</th>
+        <th>Outcome</th>
+      </tr>
+      <tr>
+        <td>Mar 3, 1973</td>
+        <td>Pioneer 10</td>
+        <td>USA</td>
+        <td>Flyby</td>
+        <td>Success - First</td>
+      </tr>
+      <tr>
+        <td>Apr 5, 1973</td>
+        <td>Pioneer 11</td>
+        <td>USA</td>
+        <td>Flyby</td>
+        <td>Success</td>
+      </tr>
+      <tr>
+        <td>Sep 5, 1977</td>
+        <td>Voyager 1</td>
+        <td>USA</td>
+        <td>Flyby</td>
+        <td>Success</td>
+      </tr>
+      <tr>
+        <td>Aug 20, 1977</td>
+        <td>Voyager 2</td>
+        <td>USA</td>
+        <td>Flyby</td>
+        <td>Success</td>
+      </tr>
+      <tr>
+        <td>Oct 18, 1989</td>
+        <td>Galileo</td>
+        <td>USA</td>
+        <td>Orbiter</td>
+        <td>Success</td>
+      </tr>
+      <tr>
+        <td>Oct. 6, 1990</td>
+        <td>Ulysses</td>
+        <td>International</td>
+        <td>Flyby</td>
+        <td>Success</td>
+      </tr>
+      <tr>
+        <td>Oct 15, 1997</td>
+        <td>Cassini</td>
+        <td>USA</td>
+        <td>Flyby</td>
+        <td>Success</td>
+      </tr>
+      <tr>
+        <td>Jan 19, 2006</td>
+        <td>New Horizons</td>
+        <td>USA</td>
+        <td>Flyby</td>
+        <td>Success</td>
+      </tr>
+      <tr>
+        <td>Aug. 5, 2011</td>
+        <td>Juno</td>
+        <td>USA</td>
+        <td>Orbiter</td>
+        <td>Success</td>
+      </tr>
+    </table>
+    <p class="reference">
+      <a href="https://science.nasa.gov/jupiter/exploration/"
+        >science.nasa.gov/jupiter/exploration/</a
+      >
+    </p>
+    <p>
+      The first mission, Pioneer 10, studied Jupiter’s atmosphere and took the
+      first close-up images of Jupiter and its moons. During this flyby mission,
+      the spacecraft determined many properties including the rough composition
+      of the planet and the fact that the magnetic field is the opposite to that
+      of the Earth. The mission was the first spacecraft to escape the solar
+      system.
+    </p>
+    <p>
+      Voyager 1, the furthest man made object from earth, performed a gravity
+      assist around Jupiter, gaining 10 km/s. During the manoeuvre, it captured
+      close-up images of the atmosphere of Jupiter, including the APOD from the
+      2nd of May 2011.
+    </p>
+    <p>
+      The most recent mission, Juno, entered a polar orbit of Jupiter on the 5th
+      of July, 2016. It studied the planet's gravitation and magnetism, as well
+      as its winds and atmosphere.
+    </p>
+    <p>
+      One upcoming ESA mission is Jupiter Icy Moons Explorer (JUICE). Its
+      instruments include the Ganymede Laser Altimeter (GALA), which utilises a
+      laser to study the topography of icy moons and tidal deformations of
+      Ganymede and the Sub-millimeter Wave Instrument (SWI), which utilizes a
+      spectrometer to study Jupiter's stratosphere and troposphere, as well as
+      the exospheres and surfaces of the icy moons.
+    </p>
+
+    <div class="img-container">
+      <img src="img/voyager1-grs.gif" alt="Voyager 1 GRS" />
+      <div class="img-overlay">
+        <div class="reference">
+          Voyager 1's view of the Great Red Spot
+          <br />
+          <a
+            href="https://commons.wikimedia.org/wiki/File:PIA02259_Voyager_1_Red_Spot_Movie.gif"
+            >commons.wikimedia.org/wiki/File:PIA02259_Voyager_1_Red_Spot_Movie.gif</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <h3 class="heading">Questions</h3>
+    <div class="quiz">
+      <p class="questions" id="question1">What is Jupiter’s orbital period?</p>
+      <input type="radio" name="answer1" value="wrong" />3 years
+      <input type="radio" name="answer1" value="wrong" />150 days
+      <input type="radio" name="answer1" value="correct" />12 years
+      <input type="radio" name="answer1" value="wrong" />1 century
+      <hr />
+
+      <p class="questions" id="question2">Jupiter is _____ than Earth.</p>
+      <input type="radio" name="answer2" value="wrong" />More dense
+      <input type="radio" name="answer2" value="correct" />Less dense
+      <input type="radio" name="answer2" value="wrong" />Equally dense
+      <hr />
+
+      <p class="questions" id="question3">
+        Which layer of Jupiter’s atmosphere is the hottest?
+      </p>
+      <input type="radio" name="answer3" value="wrong" />Troposphere
+      <input type="radio" name="answer3" value="wrong" />Stratosphere
+      <input type="radio" name="answer3" value="correct" />Thermosphere
+      <input type="radio" name="answer3" value="wrong" />Exosphere
+      <hr />
+
+      <p class="questions" id="question4">
+        Jupiter’s red and white clouds structures are made of which chemical?
+      </p>
+      <input type="radio" name="answer4" value="correct" />Ammonia
+      <input type="radio" name="answer4" value="wrong" />Water
+      <input type="radio" name="answer4" value="wrong" />Benzene
+      <input type="radio" name="answer4" value="wrong" />Hydrogen
+      <hr />
+
+      <p class="questions" id="question5">
+        At what altitude does Jupiter’s troposphere end?
+      </p>
+      <input type="radio" name="answer5" value="wrong" />5000 km
+      <input type="radio" name="answer5" value="wrong" />320 km
+      <input type="radio" name="answer5" value="correct" />90 km
+      <input type="radio" name="answer5" value="wrong" />0 km
+      <hr />
+
+      <p class="questions" id="question6">The Great Red Spot is ___?</p>
+      <input type="radio" name="answer6" value="wrong" />Growing
+      <input type="radio" name="answer6" value="wrong" />Maintaining its current
+      size <input type="radio" name="answer6" value="correct" />Shrinking
+      <hr />
+
+      <p class="questions" id="question7">How deep is the Great Red Spot?</p>
+      <input type="radio" name="answer7" value="wrong" />Less than 200 km
+      <input type="radio" name="answer7" value="correct" />Greater than 500 km
+      <hr />
+
+      <p class="questions" id="question8">
+        The Great Red Spot is a stable vortex that emerged from what kind of
+        vortex?
+      </p>
+      <input type="radio" name="answer8" value="correct" />Constant vorticity
+      <input type="radio" name="answer8" value="wrong" />Constant velocity
+      <input type="radio" name="answer8" value="wrong" />Constant area
+      <input type="radio" name="answer8" value="wrong" />Dynamic area
+      <hr />
+
+      <button class="submit" onclick="return getResults();" type="submit">
+        Submit
+      </button>
+    </div>
+
+    <h3 class="heading">References</h3>
+    <p>
+      Atreya, S. K., et al. (2003). "Composition and origin of the atmosphere of
+      Jupiter—an update, and implications for the extrasolar giant planets."
+      Planetary and Space Science 51(2): 105-112.
+      <br />
+      Baines, K. H., et al. (2002). "Fresh Ammonia Ice Clouds in Jupiter: I.
+      Spectroscopic Identification, Spatial Distribution, and Dynamical
+      Implications." Icarus 159(1): 74-94.
+      <br />
+      Cai, T., et al. (2023). Prediction on the depth of Great Red Spot by a
+      rotating convection model. 55: 508.507.
+      <br />
+      Bhardwaj, A. and G. R. Gladstone (2000). "Auroral emissions of the giant
+      planets." Reviews of Geophysics 38(3): 295-353.
+      <br />
+      Dubs, H.H., (1958). The beginnings of Chinese astronomy. Journal of the
+      American Oriental Society, 78(4), pp.295-300.
+      <br />
+      Iess, L., et al. (2018). "Measurement of Jupiter's asymmetric gravity
+      field." Nature 555(7695): 220-222.
+      <br />
+      NASA (2018). Jupiter Fact Sheet. [online] Nasa.gov. Available at:
+      https://nssdc.gsfc.nasa.gov/planetary/factsheet/jupiterfact.html.
+      <br />
+      Parisi, M., et al. (2021). "The depth of Jupiter’s Great Red Spot
+      constrained by Juno gravity overflights." Science 374(6570): 964-968.
+      <br />
+      Rogers, J. H. (1998). "Origins of the ancient constellations: I. The
+      Mesopotamian traditions." Journal of the British Astronomical Association,
+      vol. 108, no. 1, p. 9-28 108: 9-28.
+      <br />
+      Sachs, A. (1974). Babylonian observational astronomy. Philosophical
+      Transactions of the Royal Society of London. Series A, Mathematical and
+      Physical Sciences, 276(1257), pp.43-50.
+      <br />
+      Sánchez‐Lavega, A., et al. (2021). "Jupiter’s great red spot: Strong
+      interactions with incoming anticyclones in 2019." Journal of Geophysical
+      Research: Planets 126(4): e2020JE006686.
+      <br />
+      Seiff, A., et al. (1998). "Thermal structure of Jupiter's atmosphere near
+      the edge of a 5‐μm hot spot in the north equatorial belt." Journal of
+      Geophysical Research: Planets 103(E10): 22857-22889.
+      <br />
+      Simon, A. A., et al. (2018). "Historical and contemporary trends in the
+      size, drift, and color of Jupiter's great red spot." The Astronomical
+      Journal 155(4): 151.
+      <br />
+      Yelle, R. V. and S. Miller (2004). "Jupiter’s thermosphere and
+      ionosphere." Jupiter: The planet, satellites and magnetosphere 1: 185-218.
+      <br />
+      Zhang, A. and P. S. Marcus (2023). "Stable 3-dimensional Vortex Families
+      Consistent with Jovian Observations Including the Great Red Spot." arXiv
+      preprint arXiv:2310.01435.
+    </p>
+
+    <script type="text/javascript">
+      function getResults() {
+        // CORRECT ANSWERS
+        var amountCorrect = 0;
+
+        // LOOP FOR GOING THROUGH ALL QUESTIONS
+        for (var i = 1; i <= 8; i++) {
+          var radiosName = document.getElementsByName("answer" + i);
+          var questionElem = document.getElementById("question" + i);
+
+          // Clear previous check/cross
+          clearMarks(questionElem);
+
+          // LOOP FOR CHECKING ANSWERS INSIDE EACH RADIO
+          for (var j = 0; j < radiosName.length; j++) {
+            var radiosValue = radiosName[j];
+
+            if (radiosValue.value == "correct" && radiosValue.checked) {
+              amountCorrect++;
+              radiosValue.style.color = "green";
+              addCheckbox(questionElem);
+            } else if (radiosValue.value != "correct" && radiosValue.checked) {
+              radiosValue.style.color = "red";
+              addCross(questionElem);
+            }
+          }
+        }
+
+        document.getElementById("results").innerHTML =
+          "Respuestas correctas " + amountCorrect;
+      }
+
+      function addCheckbox(questionElem) {
+        var checkbox = document.createElement("span");
+        checkbox.className = "checkmark"; // Add a class for identification
+        checkbox.innerHTML = "&#x2713;"; // Checkmark symbol
+        checkbox.style.color = "green";
+        questionElem.appendChild(checkbox);
+      }
+
+      function addCross(questionElem) {
+        var cross = document.createElement("span");
+        cross.className = "cross"; // Add a class for identification
+        cross.innerHTML = "&#x2717;"; // Cross symbol
+        cross.style.color = "red";
+        questionElem.appendChild(cross);
+      }
+
+      function clearMarks(questionElem) {
+        // Remove any previously added checkmark or cross
+        var checkmarks = questionElem.getElementsByClassName("checkmark");
+        while (checkmarks.length > 0) {
+          checkmarks[0].parentNode.removeChild(checkmarks[0]);
+        }
+
+        var crosses = questionElem.getElementsByClassName("cross");
+        while (crosses.length > 0) {
+          crosses[0].parentNode.removeChild(crosses[0]);
+        }
+      }
+    </script>
     <script src="assets/data/elp.js"></script>
     <script src="assets/data/vsop-earth.js"></script>
     <script>
-		window.onJsOrreryLoaded = function (JSOrrery) {
-			const jsOrrery = new JSOrrery('jsorrery');
-            const params = {
-				cameraSettings: {
-					x: "11",
-                    y: "-420",
-                    z: "-50",
-                }
-            };
-			
-            jsOrrery.loadScenarioFromName('JupiterMoon', params);
-            jsOrrery.activeScenario.playing = true;
-        }
-		</script>
+      window.onJsOrreryLoaded = function (JSOrrery) {
+        const jsOrrery = new JSOrrery("jsorrery");
+        const params = {
+          cameraSettings: {
+            x: "11",
+            y: "-420",
+            z: "-50",
+          },
+        };
+
+        jsOrrery.loadScenarioFromName("JupiterMoon", params);
+        jsOrrery.activeScenario.playing = true;
+      };
+    </script>
     <script type="text/javascript" src="jsorrery.js"></script>
-	
-	<div id="quiz">
-		<h2 id="questions-h">Questions</h2>
-
-		<p class="questions" id="question1">
-			Which layer of Jupiter’s atmosphere is the hottest?</p>
-		<input type="radio" name="answer1" value="wrong">Troposphere
-		<input type="radio" name="answer1" value="wrong">Stratosphere
-		<input type="radio" name="answer1" value="correct">Thermosphere
-		<input type="radio" name="answer1" value="wrong">Exosphere
-		<hr>
-	
-		<p class="questions" id="question2">
-			Jupiter’s red and white clouds structures are made of which chemical?</p>
-		<input type="radio" name="answer2" value="correct">Ammonia
-		<input type="radio" name="answer2" value="wrong">Water
-		<input type="radio" name="answer2" value="wrong">Benzene
-		<input type="radio" name="answer2" value="wrong">Hydrogen
-		<hr>
-	
-		<p class="questions" id="question3">
-			At what altitude does Jupiter’s troposphere end?</p>
-		<input type="radio" name="answer3" value="wrong">5000 km
-		<input type="radio" name="answer3" value="wrong">320 km
-		<input type="radio" name="answer3" value="correct">90 km
-		<input type="radio" name="answer3" value="wrong">0 km
-		<hr>
-	
-		<button class="submit" onclick="return getResults();" type="submit">Comprueba tus respuestas</button>
-	
-		<script type="text/javascript">
-			function getResults() {
-				// CORRECT ANSWERS
-				var amountCorrect = 0;
-
-				// LOOP FOR GOING THROUGH ALL QUESTIONS
-				for (var i = 1; i <= 5; i++) {
-					var radiosName = document.getElementsByName('answer' + i);
-					var questionElem = document.getElementById('question' + i);
-
-					// Clear previous check/cross
-					clearMarks(questionElem);
-
-					// LOOP FOR CHECKING ANSWERS INSIDE EACH RADIO
-					for (var j = 0; j < radiosName.length; j++) {
-					var radiosValue = radiosName[j];
-
-					if (radiosValue.value == 'correct' && radiosValue.checked) {
-						amountCorrect++;
-						radiosValue.style.color = 'green';
-						addCheckbox(questionElem);
-					} else if (radiosValue.value != 'correct' && radiosValue.checked) {
-						radiosValue.style.color = 'red';
-						addCross(questionElem);
-					}
-					}
-				}
-
-				document.getElementById('results').innerHTML =
-					'Respuestas correctas ' + amountCorrect;
-				}
-
-				function addCheckbox(questionElem) {
-				var checkbox = document.createElement('span');
-				checkbox.className = 'checkmark'; // Add a class for identification
-				checkbox.innerHTML = '&#x2713;'; // Checkmark symbol
-				checkbox.style.color = 'green';
-				questionElem.appendChild(checkbox);
-				}
-
-				function addCross(questionElem) {
-				var cross = document.createElement('span');
-				cross.className = 'cross'; // Add a class for identification
-				cross.innerHTML = '&#x2717;'; // Cross symbol
-				cross.style.color = 'red';
-				questionElem.appendChild(cross);
-				}
-
-				function clearMarks(questionElem) {
-				// Remove any previously added checkmark or cross
-				var checkmarks = questionElem.getElementsByClassName('checkmark');
-				while (checkmarks.length > 0) {
-					checkmarks[0].parentNode.removeChild(checkmarks[0]);
-				}
-
-				var crosses = questionElem.getElementsByClassName('cross');
-				while (crosses.length > 0) {
-					crosses[0].parentNode.removeChild(crosses[0]);
-				}
-				}
-
-		</script>
-	</div>
-
-</body>
-
+  </body>
 </html>
