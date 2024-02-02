@@ -13,7 +13,7 @@
       <img src="img/grs.jpeg" alt="Voyager 2 GRS" />
       <div class="img-overlay">
         <p class="reference">
-          Voyager 2's view of the Great Red Spot
+          Voyager 1's view of the Great Red Spot
           <br />
           <a href="https://apod.nasa.gov/apod/ap110502.html"
             >apod.nasa.gov/apod/ap110502.html</a
@@ -274,18 +274,13 @@
       the spacecraft determined many properties including the rough composition
       of the planet and the fact that the magnetic field is the opposite to that
       of the Earth. The mission was the first spacecraft to escape the solar
-      system.
-    </p>
-    <p>
-      Voyager 1, the furthest man made object from earth, performed a gravity
-      assist around Jupiter, gaining 10 km/s. During the manoeuvre, it captured
-      close-up images of the atmosphere of Jupiter, including the APOD from the
-      2nd of May 2011.
-    </p>
-    <p>
-      The most recent mission, Juno, entered a polar orbit of Jupiter on the 5th
-      of July, 2016. It studied the planet's gravitation and magnetism, as well
-      as its winds and atmosphere.
+      system. Voyager 1, the furthest man made object from earth, performed a
+      gravity assist around Jupiter, gaining 10 km/s. During the manoeuvre, it
+      captured close-up images of the atmosphere of Jupiter, including the APOD
+      from the 2nd of May 2011. The most recent mission, Juno, entered a polar
+      orbit of Jupiter on the 5th of July, 2016. It studied the planet's
+      gravitation and magnetism, as well as its winds and atmosphere (NASA,
+      n.d.).
     </p>
     <p>
       One upcoming ESA mission is Jupiter Icy Moons Explorer (JUICE). Its
@@ -300,11 +295,11 @@
       <img src="img/voyager1-grs.gif" alt="Voyager 1 GRS" />
       <div class="img-overlay">
         <div class="reference">
-          Voyager 1's view of the Great Red Spot
+          Animation of photos of The Great Red Spot taken by Voyager 1
           <br />
           <a
             href="https://commons.wikimedia.org/wiki/File:PIA02259_Voyager_1_Red_Spot_Movie.gif"
-            >commons.wikimedia.org/wiki/File:PIA02259_Voyager_1_Red_Spot_Movie.gif</a
+            >commons.wikimedia.org</a
           >
         </div>
       </div>
@@ -373,6 +368,13 @@
       <input type="radio" name="answer8" value="wrong" />Dynamic area
       <hr />
 
+      <p class="questions" id="question9">
+        Was Pioneer 10 a flyby or orbiter mission?
+      </p>
+      <input type="radio" name="answer9" value="correct" />Flyby
+      <input type="radio" name="answer9" value="wrong" />Orbiter
+      <hr />
+
       <button class="submit" onclick="return getResults();" type="submit">
         Submit
       </button>
@@ -402,6 +404,9 @@
       <br />
       NASA (2018). Jupiter Fact Sheet. [online] Nasa.gov. Available at:
       https://nssdc.gsfc.nasa.gov/planetary/factsheet/jupiterfact.html.
+      <br />
+      NASA (n.d.). Jupiter: Exploration - NASA Science. [online] Available at:
+      https://science.nasa.gov/jupiter/exploration/.
       <br />
       Parisi, M., et al. (2021). "The depth of Jupiter’s Great Red Spot
       constrained by Juno gravity overflights." Science 374(6570): 964-968.
@@ -440,7 +445,7 @@
         var amountCorrect = 0;
 
         // LOOP FOR GOING THROUGH ALL QUESTIONS
-        for (var i = 1; i <= 8; i++) {
+        for (var i = 1; i <= 9; i++) {
           var radiosName = document.getElementsByName("answer" + i);
           var questionElem = document.getElementById("question" + i);
 
